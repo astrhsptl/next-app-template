@@ -5,7 +5,7 @@ import {
   ResponseCookie,
 } from 'next/dist/compiled/@edge-runtime/cookies';
 import { cookies } from 'next/headers';
-import { CredentialStorageInterface } from '../internal-tools-interfaces';
+import { CredentialStorageInterface } from '../../internal-tools-interfaces';
 
 class CredentialStorage implements CredentialStorageInterface {
   protected CookieService = cookies();
