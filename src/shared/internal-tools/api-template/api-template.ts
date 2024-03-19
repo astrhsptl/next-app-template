@@ -6,8 +6,8 @@ import { compileUrlPath } from './api-tools';
 export class APITemplate {
   private url;
 
-  constructor(baseUrl: string, urlPrefix: string) {
-    this.url = baseUrl + urlPrefix;
+  constructor(url: string) {
+    this.url = url;
   }
 
   async fetchAll<FetchType>(
@@ -23,16 +23,16 @@ export class APITemplate {
     return await axios.get<FetchType>(url, RequestConfig);
   }
 
-  async create<FetchType, FetchTypeCreate>(
-    data: FetchTypeCreate,
+  async create<FetchType, FetchTypeRequest>(
+    data: FetchTypeRequest,
     RequestConfig?: AxiosRequestConfig
   ) {
     return await axios.post<FetchType>(this.url, data, RequestConfig);
   }
 
-  async update<FetchType, FetchTypeUpd>(
+  async update<FetchType, FetchTypeRequest>(
     id: EntityId,
-    data: FetchTypeUpd,
+    data: FetchTypeRequest,
     RequestConfig?: AxiosRequestConfig
   ) {
     let url = `${this.url}${id}`;
