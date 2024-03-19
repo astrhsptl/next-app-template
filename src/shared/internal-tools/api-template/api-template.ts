@@ -23,8 +23,22 @@ export class APITemplate {
     return await axios.get<FetchType>(url, RequestConfig);
   }
 
-  async create() {}
-  async update() {}
+  async create<FetchType, FetchTypeCreate>(
+    data: FetchTypeCreate,
+    RequestConfig?: AxiosRequestConfig
+  ) {
+    return await axios.post<FetchType>(this.url, data, RequestConfig);
+  }
+
+  async update<FetchType, FetchTypeUpd>(
+    id: EntityId,
+    data: FetchTypeUpd,
+    RequestConfig?: AxiosRequestConfig
+  ) {
+    let url = `${this.url}${id}`;
+    return await axios.patch<FetchType>(url, data, RequestConfig);
+  }
+
   async delete<FetchType>(id: EntityId, RequestConfig?: AxiosRequestConfig) {
     let url = `${this.url}${id}`;
     return await axios.delete<FetchType>(url, RequestConfig);
