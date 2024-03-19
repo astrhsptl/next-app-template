@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const HomePage: FC = () => {
-  return <main></main>;
+  return <main>ASDFGSOMEONESDF</main>;
 };
 
 export default HomePage;

@@ -39,7 +39,7 @@ export class APITemplate {
     return await axios.patch<FetchType>(url, data, RequestConfig);
   }
 
-  async delete<FetchType>(id: EntityId, RequestConfig?: AxiosRequestConfig) {
+  async remove<FetchType>(id: EntityId, RequestConfig?: AxiosRequestConfig) {
     let url = `${this.url}${id}`;
     return await axios.delete<FetchType>(url, RequestConfig);
   }
